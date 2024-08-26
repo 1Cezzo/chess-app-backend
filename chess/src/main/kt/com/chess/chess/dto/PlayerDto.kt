@@ -1,4 +1,4 @@
-package kotlin.com.chess.chess.dto
+package kt.com.chess.chess.dto
 
 data class PlayerDto(
     val id: Long? = null,

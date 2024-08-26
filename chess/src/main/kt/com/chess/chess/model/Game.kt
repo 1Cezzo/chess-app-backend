@@ -1,6 +1,6 @@
-package kotlin.com.chess.chess.model
+package kt.com.chess.chess.model
 
-import javax.persistence.*
+import jakarta.persistence.*;
 
 @Entity
 data class Game(
