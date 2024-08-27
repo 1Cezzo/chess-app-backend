@@ -1,9 +1,9 @@
-package kt.com.chess.chess.service
+package com.chess.chess.service
 
-import kt.com.chess.chess.dto.PlayerDto
-import kt.com.chess.chess.model.Player
-import kt.com.chess.chess.repository.PlayerRepository
-import kt.com.chess.chess.mapper.PlayerMapper
+import com.chess.chess.dto.PlayerDto
+import com.chess.chess.model.Player
+import com.chess.chess.repository.PlayerRepository
+import com.chess.chess.mapper.PlayerMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

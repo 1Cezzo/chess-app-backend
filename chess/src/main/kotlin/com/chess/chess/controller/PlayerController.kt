@@ -1,7 +1,7 @@
-package kt.com.chess.chess.controller
+package com.chess.chess.controller
 
-import kt.com.chess.chess.dto.PlayerDto
-import kt.com.chess.chess.service.PlayerService
+import com.chess.chess.dto.PlayerDto
+import com.chess.chess.service.PlayerService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

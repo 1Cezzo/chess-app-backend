@@ -1,9 +1,9 @@
-package kt.com.chess.chess.mapper
+package com.chess.chess.mapper
 
-import kt.com.chess.chess.model.Game
-import kt.com.chess.chess.model.Player
-import kt.com.chess.chess.dto.GameDto
-import kt.com.chess.chess.mapper.PlayerMapper
+import com.chess.chess.model.Game
+import com.chess.chess.model.Player
+import com.chess.chess.dto.GameDto
+import com.chess.chess.mapper.PlayerMapper
 
 object GameMapper {
     fun toDto(game: Game): GameDto = GameDto(

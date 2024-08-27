@@ -1,4 +1,4 @@
-package kt.com.chess.chess.model
+package com.chess.chess.model
 
 import jakarta.persistence.*;
 

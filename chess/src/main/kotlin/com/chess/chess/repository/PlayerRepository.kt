@@ -1,6 +1,6 @@
-package kt.com.chess.chess.repository
+package com.chess.chess.repository
 
-import kt.com.chess.chess.model.Player
+import com.chess.chess.model.Player
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
