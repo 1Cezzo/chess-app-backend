@@ -57,4 +57,9 @@ class PlayerService @Autowired constructor(
             false
         }
     }
+
+    fun getPlayersInQueue(): List<PlayerDto> {
+        val playersInQueue = playerRepository.findByInQueue(true)
+        return playersInQueue.map { PlayerMapper.toDto(it) }
+    }
 }

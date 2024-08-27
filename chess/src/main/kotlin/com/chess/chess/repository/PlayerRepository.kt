@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository
 interface PlayerRepository : JpaRepository<Player, Long> {
     fun findByUsername(username: String): Player?
     fun findByEmail(email: String): Player?
+    fun findByInQueue(inQueue: Boolean): List<Player>?
 }

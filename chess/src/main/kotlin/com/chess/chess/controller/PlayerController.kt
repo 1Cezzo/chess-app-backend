@@ -52,4 +52,10 @@ class PlayerController @Autowired constructor(
             ResponseEntity.notFound().build()
         }
     }
+
+    @GetMapping("/in-queue")
+    fun getPlayersInQueue(): ResponseEntity<List<PlayerDto>> {
+        val playersInQueue = playerService.getPlayersInQueue()
+        return ResponseEntity.ok(playersInQueue)
+    }
 }
