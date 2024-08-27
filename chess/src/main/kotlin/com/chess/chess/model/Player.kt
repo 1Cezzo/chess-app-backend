@@ -15,5 +15,7 @@ data class Player(
 
     var email: String,
 
-    var rating: Int = 1200
+    var rating: Int = 1200,
+
+    var inQueue: Boolean = false
 )

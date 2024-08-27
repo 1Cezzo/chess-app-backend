@@ -35,4 +35,26 @@ class PlayerService @Autowired constructor(
     fun deletePlayer(id: Long) {
         playerRepository.deleteById(id)
     }
+
+    fun enterQueue(id: Long): Boolean {
+        val player = playerRepository.findById(id).orElse(null)
+        return if (player != null) {
+            player.inQueue = true
+            playerRepository.save(player)
+            true
+        } else {
+            false
+        }
+    }
+
+    fun leaveQueue(id: Long): Boolean {
+        val player = playerRepository.findById(id).orElse(null)
+        return if (player != null) {
+            player.inQueue = false
+            playerRepository.save(player)
+            true
+        } else {
+            false
+        }
+    }
 }

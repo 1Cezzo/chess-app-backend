@@ -75,10 +75,8 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>2.2.224</version>
-			<scope>test</scope>
+			<scope>runtime</scope>
 		</dependency>
-
 
 	</dependencies>
 
@@ -90,7 +88,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.chess.chess.ChessApplication</mainClass>
+					<mainClass>com.chess.chess.ChessApplicationKt</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>

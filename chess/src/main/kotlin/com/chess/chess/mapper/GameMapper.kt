@@ -17,8 +17,8 @@ object GameMapper {
 
     fun toEntity(gameDto: GameDto): Game = Game(
         id = gameDto.id,
-        player1 = Player(id = gameDto.player1Id, username = "", email = "", rating = 0),
-        player2 = Player(id = gameDto.player2Id, username = "", email = "", rating = 0),
+        player1 = Player(id = gameDto.player1Id, username = "", email = "", rating = 0, inQueue = false),
+        player2 = Player(id = gameDto.player2Id, username = "", email = "", rating = 0, inQueue = false),
         result = gameDto.result,
         moves = gameDto.moves,
         fen = gameDto.fen

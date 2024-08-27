@@ -34,4 +34,22 @@ class PlayerController @Autowired constructor(
         playerService.deletePlayer(id)
         return ResponseEntity.noContent().build()
     }
+
+    @PutMapping("/{id}/enter-queue")
+    fun enterQueue(@PathVariable id: Long): ResponseEntity<Void> {
+        return if (playerService.enterQueue(id)) {
+            ResponseEntity.noContent().build()
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
+
+    @PutMapping("/{id}/leave-queue")
+    fun leaveQueue(@PathVariable id: Long): ResponseEntity<Void> {
+        return if (playerService.leaveQueue(id)) {
+            ResponseEntity.noContent().build()
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
 }

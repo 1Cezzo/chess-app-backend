@@ -8,13 +8,15 @@ object PlayerMapper {
         id = player.id,
         username = player.username,
         email = player.email,
-        rating = player.rating
+        rating = player.rating,
+        inQueue = player.inQueue
     )
 
     fun toEntity(playerDto: PlayerDto): Player = Player(
         id = playerDto.id,
         username = playerDto.username,
         email = playerDto.email,
-        rating = playerDto.rating
+        rating = playerDto.rating,
+        inQueue = playerDto.inQueue
     )
 }
