@@ -9,4 +9,6 @@ interface PlayerRepository : JpaRepository<Player, Long> {
     fun findByUsername(username: String): Player?
     fun findByEmail(email: String): Player?
     fun findByInQueue(inQueue: Boolean): List<Player>?
+    fun existsByUsername(username: String): Boolean
+    fun existsByEmail(email: String): Boolean
 }

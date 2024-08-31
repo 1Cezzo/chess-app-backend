@@ -6,6 +6,8 @@ import com.chess.chess.repository.PlayerRepository
 import com.chess.chess.mapper.PlayerMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.web.server.ResponseStatusException
+import org.springframework.http.HttpStatus
 
 @Service
 class PlayerService @Autowired constructor(
@@ -16,9 +18,22 @@ class PlayerService @Autowired constructor(
     }
 
     fun createPlayer(playerDto: PlayerDto): PlayerDto {
+        if (playerRepository.existsByUsername(playerDto.username)) {
+            throw ResponseStatusException(HttpStatus.CONFLICT, "Username already exists")
+        }
+
+        if (playerRepository.existsByEmail(playerDto.email)) {
+            throw ResponseStatusException(HttpStatus.CONFLICT, "Email already exists")
+        }
+
         val player = PlayerMapper.toEntity(playerDto)
         val savedPlayer = playerRepository.save(player)
         return PlayerMapper.toDto(savedPlayer)
+    }
+
+    fun getPlayers(): List<PlayerDto> {
+        val players = playerRepository.findAll() ?: emptyList()
+        return players.map { PlayerMapper.toDto(it) }
     }
 
     fun updatePlayer(id: Long, playerDto: PlayerDto): PlayerDto? {
@@ -59,7 +74,16 @@ class PlayerService @Autowired constructor(
     }
 
     fun getPlayersInQueue(): List<PlayerDto> {
-        val playersInQueue = playerRepository.findByInQueue(true)
+        val playersInQueue = playerRepository.findByInQueue(true) ?: emptyList()
         return playersInQueue.map { PlayerMapper.toDto(it) }
+    }
+
+    fun login(username: String, email: String): PlayerDto? {
+        val player = playerRepository.findByUsername(username) ?: return null
+        return if (player.email == email) {
+            PlayerMapper.toDto(player)
+        } else {
+            null
+        }
     }
 }

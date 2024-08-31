@@ -23,6 +23,12 @@ class PlayerController @Autowired constructor(
         return ResponseEntity.ok(createdPlayer)
     }
 
+    @GetMapping
+    fun getPlayers(): ResponseEntity<List<PlayerDto>> {
+        val players = playerService.getPlayers()
+        return ResponseEntity.ok(players)
+    }
+
     @PutMapping("/{id}")
     fun updatePlayer(@PathVariable id: Long, @RequestBody playerDto: PlayerDto): ResponseEntity<PlayerDto> {
         val updatedPlayer = playerService.updatePlayer(id, playerDto) ?: return ResponseEntity.notFound().build()
